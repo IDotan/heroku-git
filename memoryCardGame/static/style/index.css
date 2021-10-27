@@ -1,0 +1,744 @@
+:root {
+  --ff-main: sans-serif;
+  --fs-popup-input: 2rem;
+  --fs-Profle-h2: 2.5rem;
+  --fs-paragraph: 1.5rem;
+  --clr-white: #fff;
+  --clr-black: #000000;
+  --clr-yellow: #ffc131;
+  --clr-popup-backround: rgba(0, 0, 0, 0.7);
+  --carousel-inactive-bg: rgba(0, 0, 0, 0.85);
+  --carousel-active-bg: rgba(126, 45, 147, 0.85);
+  --game-section-nav-clr: rgba(0, 0, 0, 0.5);
+  --game-section-font-clr: coral;
+  --card-width: 5em;
+  --card-height: 6em;
+  --card-gap: 0.5em;
+  --card-back-bg: #009eef;
+  --card-img-bg: #a4d72e;
+  --table-side-padding: 0.5em;
+}
+
+.hide {
+  display: none !important;
+}
+
+body {
+  min-width: 350px;
+}
+
+h1, h2, h3, p {
+  color: var(--clr-white);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header input {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}
+
+header input:checked+div {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  background-color: gray;
+}
+
+header div {
+  display: none;
+}
+
+h1 {
+  display: none;
+}
+
+#landing_screen {
+  font-family: var(--ff-main);
+  position: relative;
+  background-image: url(../img/wallpapers/mobile-landing_screen.svg);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.about_project {
+  padding-top: 22vh;
+}
+
+.memory_game_logo {
+  width: 60%;
+}
+
+.about_project_text {
+  margin: 0 auto;
+  font-size: var(--fs-paragraph);
+  padding: 0 0 2em;
+}
+
+.about_project_text>span {
+  font-weight: 900;
+}
+
+.about_project {
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about_project_text {
+  max-width: 40ch;
+}
+
+.about_btn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+  padding-bottom: 2em;
+}
+
+.btn_style {
+  width: 8em;
+  cursor: pointer;
+  background-color: var(--clr-yellow);
+  color: var(--clr-black);
+  font-size: 2em;
+  padding: 0.2em 0;
+  border-radius: 1.5em;
+  border: 0.1em solid var(--clr-white);
+  transition: text-shadow 500ms, transform 500ms;
+}
+
+.btn_style:focus {
+  outline: none;
+}
+
+.btn_style:hover {
+  transform: scale(1.2);
+}
+
+.btn_transparent {
+  color: var(--clr-white);
+  border-color: var(--clr-yellow);
+  background-color: transparent;
+}
+
+.character_img {
+  display: none;
+}
+
+/* developers carousel */
+
+#developers_carousel_container {
+  position: relative;
+  padding: 2em 0;
+  margin: 0 auto;
+  max-width: 40em;
+}
+
+.carousel_arrow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding: 10% 0;
+  color: var(--clr-white);
+  font-size: 3em;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.carousel_arrow::selection {
+  background-color: transparent;
+}
+
+.carousel_arrow:nth-last-of-type(2) {
+  left: unset;
+  right: 0;
+}
+
+.developers {
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.about.placeholder {
+  visibility: hidden;
+  position: relative;
+}
+
+.developers img {
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.about {
+  position: absolute;
+  display: flex;
+  width: 85%;
+  height: 100%;
+  top: 0;
+  left: 7.5%;
+  padding: 1em;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--carousel-inactive-bg);
+  border: 0.15em solid var(--clr-yellow);
+  border-radius: 2.5rem;
+  opacity: 0.5;
+  transition: background-color 1s, opacity 1s;
+}
+
+.about_text {
+  font-size: var(--fs-paragraph);
+}
+
+.about_text>span {
+  font-weight: 700;
+}
+
+.about.center {
+  background-color: var(--carousel-active-bg);
+  opacity: 1;
+}
+
+.about h2 {
+  min-height: 5ch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--fs-Profle-h2);
+}
+
+.carousel_back_container {
+  margin: 0 auto;
+  width: max-content;
+  padding: 1em 0;
+}
+
+/*popup settings*/
+
+#popup_backround_animation {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-popup-backround);
+  z-index: 1;
+  animation: popup_backround_animation 300ms;
+}
+
+@keyframes popup_backround_animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#popup_container {
+  display: none;
+  position: fixed;
+  margin: 0 auto;
+  left: 50%;
+  transform: translatex(-50%);
+  background-image: url(../img/popup/login.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.popup_animation {
+  animation: start_popup 500ms ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes start_popup {
+  0% {
+    display: block;
+    top: -100%;
+  }
+  50% {
+    top: 0;
+  }
+  70% {
+    top: -4%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+#popup_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  width: 32ch;
+  box-sizing: content-box;
+  padding: 4em;
+  font-family: var(--ff-main);
+}
+
+#close_popup {
+  align-self: end;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: var(--clr-yellow);
+}
+
+#popup_content label {
+  font-size: var(--fs-popup-input);
+  color: var(--clr-white);
+}
+
+#popup_content input {
+  margin-bottom: 5%;
+  width: 100%;
+  font-size: var(--fs-popup-input);
+  border: none;
+  color: var(--clr-yellow);
+  background-color: initial;
+  border-bottom: 2px solid var(--clr-yellow);
+}
+
+#popup_content input:focus {
+  border: none;
+  border-bottom: 3px solid var(--clr-yellow);
+  outline: none;
+}
+
+#login_btn {
+  margin-top: 3rem;
+  width: 5em;
+}
+
+#error_msg {
+  position: absolute;
+  top: 60%;
+  color: red;
+}
+
+/*game_window*/
+
+/* difficulty section */
+
+#difficulty_picking {
+  background-image: url(../img/wallpapers/mobile-bg-difficulty_picking.svg);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  padding-top: 25vh;
+}
+
+#difficulty_picking h2 {
+  font: normal bold 2em/1em Poppins;
+  padding-bottom: 1em;
+}
+
+.difficulty_btn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.difficulty_img {
+  height: 7em;
+  margin: 0 1em;
+}
+
+.btn_style_difficulty {
+  font: normal normal bold 3em/1em Poppins;
+  color: var(--clr-white);
+  background-color: transparent;
+  border: none;
+}
+
+.difficulty_btn_container div {
+  display: flex;
+}
+
+/* game section */
+
+#game_board {
+  background-image: url(../img/wallpapers/game-bord-img.svg);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.game_navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--game-section-nav-clr);
+}
+
+.nav_logo {
+  height: 3em;
+  margin: 0.5em;
+}
+
+.game_info_container {
+  padding: 0 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  color: var(--game-section-font-clr);
+  text-align: center;
+}
+
+.game_info {
+  height: max-content;
+}
+
+.nav_icon {
+  height: 2em;
+  vertical-align: text-bottom;
+}
+
+.game_info_container span {
+  font-size: 2em;
+}
+
+#game_timer {
+  display: inline-block;
+}
+
+#timer_status {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.mistakes {
+  letter-spacing: 0.2em;
+}
+
+.mistakes_x {
+  opacity: 0.3;
+}
+
+.mistakes_x.mark {
+  opacity: 1;
+}
+
+#user_data {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 0.5em;
+  color: var(--clr-white);
+}
+
+.game_panle {
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+}
+
+#card_container {
+  margin: 1em 0;
+  width: calc(((var(--card-width) + var(--card-gap)) * 3));
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: var(--card-gap);
+}
+
+.victory::after, .lost::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max-content;
+  font-size: 3em;
+  font-weight: 900;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  background-color: #000000b3;
+}
+
+.victory::after {
+  content: "YOU WIN!";
+  color: rgb(44, 201, 57);
+}
+
+.lost::after {
+  content: "LOSER!";
+  color: rgb(201, 44, 44);
+}
+
+.card {
+  margin: 0 auto;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 500ms, background-color 500ms;
+  background-color: var(--card-back-bg);
+  border: 0.25em solid var(--clr-white);
+  border-radius: 5%;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+  background-color: var(--card-img-bg);
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card.flip:hover {
+  transform: rotateY(180deg) scale(1.1);
+}
+
+.card.selected {
+  border-color: var(--clr-yellow);
+}
+
+.card_back, .card_img {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card_back {
+  padding: 0 0.5em;
+}
+
+.card_img {
+  transform: translateY(-50%) rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start_btn_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+.board_btn_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+  padding-bottom: 2em;
+}
+
+.start_game_btn {
+  letter-spacing: 0.1em;
+}
+
+#board_bottom_btn_continer {
+  margin: 0 auto;
+  padding: 2em 0;
+  font-size: 0.5em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* end screen */
+
+#end_screen {
+  background-image: url(../img/wallpapers/mobilegame_ranking.png);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  padding-top: 20vh;
+}
+
+#end_screen h2 {
+  text-align: center;
+  padding-bottom: 1em;
+  color: var(--clr-yellow);
+  font: normal normal bold 2em/1em Poppins;
+}
+
+/* table style */
+
+#table_continer {
+  margin: 0 auto;
+  max-width: 85vw;
+  overflow-x: auto;
+  color: var(--clr-white);
+}
+
+#score_table {
+  position: relative;
+  width: max-content;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+#score_table th {
+  position: relative;
+}
+
+#score_table th, #score_table td {
+  height: 2.5em;
+  text-align: center;
+  padding: 0 var(--table-side-padding);
+  max-width: 14em;
+}
+
+#score_table th:nth-of-type(1), #score_table td:nth-of-type(1) {
+  padding: 0;
+}
+
+#score_table th:nth-of-type(3), #score_table td:nth-of-type(3), #score_table th:nth-of-type(4), #score_table td:nth-of-type(4) {
+  min-width: 5em;
+}
+
+#score_table th:nth-of-type(3), #score_table th:nth-of-type(4) {
+  cursor: pointer;
+}
+
+#score_table tr {
+  border-bottom: 0.1em dashed var(--clr-yellow);
+}
+
+#score_table tr:nth-of-type(1) {
+  border-bottom: 0.2em solid var(--clr-yellow);
+}
+
+.sort_by.show::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  right: var(--table-side-padding);
+  width: 0;
+  height: 0;
+  border-left: 0.325em solid transparent;
+  border-right: 0.325em solid transparent;
+  border-top: 0.65em solid var(--clr-yellow);
+}
+
+.sort_by.up::after {
+  transform: rotate(180deg);
+}
+
+/* btn panel */
+
+#end_screen_btn_continer {
+  margin: 1em auto;
+  width: max-content;
+  display: flex;
+  gap: 2em;
+  font-size: 0.5em;
+}
+
+/* share score */
+
+#share {
+  margin: 0.5em auto;
+  width: max-content;
+  color: var(--clr-white);
+  background-color: transparent;
+  font-size: 1.2em;
+}
+
+#share .share_link_btn {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1080px) {
+  /* landing screen desktop */
+  #landing_screen {
+    background-image: url(../img/wallpapers/landing_screen.svg);
+  }
+  .about_project {
+    max-width: max-content;
+    padding-top: 30vh;
+  }
+  .about_btn_container {
+    flex-direction: row;
+  }
+  .character_img {
+    position: absolute;
+    display: block;
+    height: 60vh;
+    left: 5%;
+    bottom: 0;
+  }
+  .dev_img {
+    padding-top: 0;
+    background-image: url(../img/wallpapers/dev.png) !important;
+  }
+  #developers_carousel_container {
+    width: 45%;
+  }
+  .about {
+    padding: 3em;
+  }
+  /* game board desktop*/
+  #difficulty_picking {
+    background-image: url(../img/wallpapers//difficulty_pickingimg.jpeg);
+    padding: 0 1em;
+    padding-top: 20vh;
+    text-align: start;
+    font-size: 1.5em;
+  }
+  /* game section */
+  .game_info_container {
+    justify-content: space-around;
+    gap: 3em;
+  }
+  .icn_time {
+    top: 21px;
+    height: 78px;
+  }
+  .icn_moves {
+    top: 21px;
+    height: 78px;
+  }
+  #user_data {
+    font-size: 1.5em;
+  }
+  #card_container {
+    flex-direction: column;
+    height: calc((var(--card-height) + var(--card-gap)) * 3);
+    width: 100%;
+    font-size: 1.5em;
+  }
+  #board_bottom_btn_continer {
+    max-width: 50vw;
+  }
+  /* score board desktop */
+  #end_screen {
+    background-image: url(../img/wallpapers/game_ranking.png);
+    font-size: 1.5em;
+  }
+}

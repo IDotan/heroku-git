@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\style\index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Itai's CV site</title>
+    <script src="https://kit.fontawesome.com/6016dddc01.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" id="menu_toggle">
+        <label for="menu_toggle">
+            <div class="menu_btn">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </label>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#my_projects">My projects</a>
+            <a href="#contact_me">Contact Me</a>
+        </nav>
+        <img src="static/img/logo.png" alt="logo" class="logo">
+    </header>
+
+    <main>
+        <div class="loading">
+            <div></div>
+        </div>
+
+        <!-- About -->
+        <section class="darker_bg">
+            <div id="about" class="anchor_scroll">
+                <div class="about_text">
+                    <h1>Itai Dotan</h1>
+                    <span>Python dev and Fullstack student</span>
+                    <div class="languages">
+                        <span>Python</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="contact_links">
+                        <a href="mailto:itai145@gmail.com" class="about_links icon_rotate roll_in" target="_blank">
+                            <i class="far fa-envelope"></i> itai145@gmail.com</a>
+                        <a href="tel:+972525343493" class="about_links icon_rotate roll_in" target="_blank">
+                            <i class="fas fa-phone-alt"></i> 052-5343493</a>
+                        <a href="https://www.linkedin.com/in/IDotan" target="_blank" class="about_links roll_in">
+                            <i class="fab fa-linkedin-in"></i> linkedin.com/in/IDotan</a>
+                    </div>
+                    <p>
+                        I am a highly motivated developer and love a good challenge, always ready to learn and try new
+                        things.<br> Self-learner with the capability to understand and use documentation, skillful in
+                        googling and finding answers.<br>
+                        Friendly and easy to get along with, works good in team or solo, have no problem to work under
+                        pressure and dead-lines.
+                    </p>
+                </div>
+                <img src="static\img\profile.jpg" alt="profile Picture">
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section>
+            <div id="my_projects" class="my_projects anchor_scroll">
+                <div id="projects_tabs">
+                    <div class="projects_tab python_tab">
+                        <img src="static/img/python_logo.png" alt="Python logo">
+                        <span>Python projects</span>
+                    </div>
+                    <div class="projects_tab web_tab sunken_tab">
+                        <img src="static/img/HTML5_logo.png" alt="HTML5 logo">
+                        <span>Web projects</span>
+                    </div>
+                </div>
+                <section id="projects_folder" class="python_tab">
+                    <div id="python_projects">
+                        <div class="project_info">
+                            <img src="static\img\flask-logo.png" alt="flask logo">
+                            <div class="project_text">
+                                <h3>Flask website project:</h3>
+                                <h5>Aug 2020</h5>
+                                <p>
+                                    This is my first "big" python project. This project set up a website using flask for
+                                    its backend with an SQL database.<br> The site include registration, log-in, saved
+                                    personal ToDo list when logged in, password reset using
+                                    E-mail and some more features.
+                                </p>
+                                <a href="https://github.com/IDotan/FlaskWebsiteProject" title="github link"
+                                    target="_blank">Github
+                                    link</a>
+                            </div>
+                        </div>
+                        <div class="project_info">
+                            <img src="static\img\sudoko.png" alt="sudoku game screenshot">
+                            <div class="project_text">
+                                <h3>Sudoku:</h3>
+                                <h5>Dec 2020</h5>
+                                <p>
+                                    Small and easy to use sudoku game and solver. Infinite number of puzzles to solve
+                                    with 3 difficulties.<br>
+                                    Can enter your on sudoku and keep solving it in the application.<br>
+                                    Playable 9x9 and 16x16 board, Auto save and load incomplete sudoku. Toggle mistakes
+                                    marking.
+                                </p>
+                                <a href="https://github.com/IDotan/sudoku" title="github link" target="_blank">Github
+                                    link</a>
+                            </div>
+                        </div>
+                        <div class="project_info">
+                            <img src="static\img\pointtopoint.png" alt="point to point screenshot">
+                            <div class="project_text">
+                                <h3>PointToPoint</h3>
+                                <h5>May 2021</h5>
+                                <p>
+                                    Puzzle game with the objective to match every touching corners.<br> Swap and spin
+                                    the tiles in order to solve the puzzle.
+                                </p>
+                                <a href="https://github.com/IDotan/PointToPoint" title="github link"
+                                    target="_blank">Github link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="web_projects">
+                        <div class="project_info">
+                            <img src="static/img/cv.png" alt="cs site screenshot">
+                            <div class="project_text">
+                                <h3>CV site</h3>
+                                <h5>September 2021</h5>
+                                <p>
+                                    The site you are on now.<br>
+                                    A CV site created in my fullstack course and update as I learned more.<br>
+                                    Moblie and desktop friendly, includs general information about me, contact links and
+                                    some projects I have completed.
+                                </p>
+                                <a href="https://github.com/IDotan/fullstackcourse/tree/main/ex5" title="github link"
+                                    target="_blank">Github link</a>
+                                <a id="cv_link" href="" title="site link" target="_blank">Site link</a>
+                            </div>
+                        </div>
+                        <div class="project_info">
+                            <img src="static/img/ptp_web.png" alt="point to point web screenshot">
+                            <div class="project_text">
+                                <h3>PointToPoint web</h3>
+                                <h5>September 2021</h5>
+                                <p>
+                                    Web version of the pazzle game I made in python.<br>
+                                    Puzzle game with the objective to match every touching corners.<br> Swap and spin
+                                    the tiles in order to solve the puzzle.
+                                </p>
+                                <a href="https://github.com/IDotan/PointToPoint-web" title="github link"
+                                    target="_blank">Github link</a>
+                                <a id="ptp_link" href="" title="site link" target="_blank">Site link</a>
+                            </div>
+                        </div>
+                        <div class="project_info">
+                            <img src="static/img/memory_game.png" alt="memory game screenshot">
+                            <div class="project_text">
+                                <h3>Memory card game</h3>
+                                <h5>october 2021</h5>
+                                <p>
+                                    A memory card game created as a end project of the html/css/js part of my fullstack
+                                    course.<br>
+                                    Select your difficulty level to get a random cards images and positions, you have 3
+                                    strikes and a timer ticking.
+                                    Try to find as many pairs as quick as you can, then see your rank in the score bord.
+                                </p>
+                                <a href="https://github.com/IDotan/memoryCardGame" title="github link"
+                                    target="_blank">Github link</a>
+                                <a id="memory_link" href="" title="site link" target="_blank">Site link</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- whatsapp side icon -->
+        <section class="whatsapp">
+            <a href="https://api.whatsapp.com/send?phone=+972525343493" target="_blank" title="send whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </section>
+
+        <!-- contact form -->
+        <section class="darker_bg">
+            <div class="anchor_scroll" id="contact_me">
+                <p>Feel free to reach out to me using any of the links below, or use the WhatsApp link to the right to
+                    easily send me a message.</p>
+                <div class="contact_links">
+                    <a href="mailto:itai145@gmail.com" class="about_links icon_rotate" target="_blank">
+                        <i class="far fa-envelope"></i> itai145@gmail.com</a>
+                    <a href="tel:+972525343493" class="about_links icon_rotate" target="_blank">
+                        <i class="fas fa-phone-alt"></i> 052-5343493</a>
+                    <a href="https://www.linkedin.com/in/IDotan" target="_blank" class="about_links">
+                        <i class="fab fa-linkedin-in"></i> linkedin.com/in/IDotan</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="credit">
+            <span>&copy Itai Dotan 2021</span>
+        </div>
+        <div class="top_page">
+            <a href="#" title="Top"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+    <script src="static/scripts/scripts.js"></script>
+</body>
+
+</html>
