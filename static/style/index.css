@@ -3,32 +3,44 @@ html {
 }
 
 :root {
-    --bg-color: rgb(147, 197, 227);
-    --darker-bg-color: rgb(119, 174, 210);
-    --darkest-bg-color: rgb(64, 115, 138);
-    --nav-bg: rgb(64, 115, 138);
+    --bg-color: #171D20;
+    --lighter-bg-color: #2F3133;
+    --lightest-bg-color: #364248;
+    --nav-bg: var(--lighter-bg-color);
     --nav-txt-color: #f4f4f4;
+    --font-color: #f4f4f4;
+    --link-color: #2fb1ff;
+    --link-visited-color: #8173ff;
     --skills-bg-color: rgb(7, 71, 113);
     --skills-txt-color: #ffffff;
-    --boarder-color: #000000;
-    --whatsapp-color: rgb(3, 119, 19);
+    --boarder-color: #9d9c9c;
+    --whatsapp-color: rgb(37, 181, 57);
     --input-txt: inherit;
-    --textarea-submit-bg: #f4f4f4;
+    --textarea-submit-bg: #2D4452;
     --boxshdow-color: #000000;
     --projects-outer-border: solid var(--boarder-color) 0.1em;
-    --pyton-tab-clr: #3472a27d;
-    --html-tab-clr: #3587C6BF;
+    --pyton-tab-clr: #2D4452CF;
+    --html-tab-clr: rgba(31, 74, 102, 0.76);
     --loadscreen-time: 1.5s;
     --nav-z: 10;
     --loadscreen-z: 50;
 }
 
 body {
+    color: var(--font-color);
     background: var(--bg-color);
     min-width: 350px;
     margin: 0;
     font-family: 'Lato', 'Times New Roman', sans-serif;
     animation: hide_scrollbar calc(var(--loadscreen-time) - (var(--loadscreen-time) * 20 / 100)) step-end 0s 1;
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-visited-color);
 }
 
 /*  load animation */
@@ -92,7 +104,7 @@ body {
 }
 
 .darker_bg {
-    background: var(--darker-bg-color);
+    background: var(--lightest-bg-color);
 }
 
 /* nav styles */
@@ -381,6 +393,7 @@ header .logo {
 
 .sunken_tab {
     box-shadow: 1px 1px 0.5em #555 inset;
+    opacity: 0.5;
 }
 
 .python_tab {
@@ -474,7 +487,7 @@ header .logo {
 /* contact form */
 
 #contact_me {
-    background: var(--darker-bg-color);
+    background: var(--lightest-bg-color);
     border-top: 0.2em solid var(--boarder-color);
     text-align: center;
     padding: 1.5em;
@@ -495,7 +508,7 @@ header .logo {
 
 footer {
     position: relative;
-    background: var(--darkest-bg-color);
+    background: var(--lighter-bg-color);
     border-top: 0.2em solid var(--boarder-color);
     padding: 1em;
 }
