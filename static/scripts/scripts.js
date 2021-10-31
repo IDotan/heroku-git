@@ -69,17 +69,12 @@ function mobile_nav_close_listener() {
  * Switch display from python to web projects.
  */
 function project_tab_switch() {
-    let tab = this.getElementsByTagName('span')[0].innerText;
-    let folder = document.getElementById('projects_folder');
-    document.querySelectorAll('.projects_tab').forEach((tab) => { tab.classList.remove('sunken_tab') });
-    if (tab == "Python projects") {
-        folder.className = "python_tab";
-        document.getElementsByClassName('projects_tab web_tab')[0].classList.add('sunken_tab');
-    } else if (tab == "Web projects") {
-        folder.className = "web_tab";
-        document.getElementsByClassName('projects_tab python_tab')[0].classList.add('sunken_tab');
-    };
-}
+    let tab_offset = document.getElementById(this.dataset.show).offsetLeft;
+    document.getElementById('projects_continer').className = this.dataset.show;
+    document.getElementById('projects_folder').scrollTo({ left: tab_offset, top: 0, behavior: 'smooth' });
+    document.querySelectorAll('.projects_tab').forEach((tab) => { tab.classList.add('sunken_tab') });
+    this.classList.remove('sunken_tab');
+};
 
 /**
  * Set the sites links dynamicly according to the host.
@@ -133,5 +128,10 @@ eventAssign();
 window.onload = () => {
     mobile_menu_close();
     show_hide_projects();
+    document.getElementById('projects_folder').scrollTo(0, 0);
+};
+window.onresize = () => {
+    show_hide_projects();
+    document.querySelector('.projects_tab.' + document.getElementById('projects_continer').className).click();
 };
 window.addEventListener('scroll', show_hide_projects);

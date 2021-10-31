@@ -216,13 +216,12 @@ nav a:hover {
 
 #menu_toggle:checked~label>div div:nth-of-type(2) {
     top: 50%;
-    transform: rotate(-50deg) translateY(-50%);
+    transform: translateY(-50%) rotate(-50deg);
 }
 
 #menu_toggle:checked~label>div div:nth-of-type(3) {
     top: 50%;
-    transform: rotate(50deg) translateY(-50%);
-    left: -10%;
+    transform: translateY(-50%) rotate(50deg);
 }
 
 .disable_scroll {
@@ -396,32 +395,36 @@ header .logo {
     opacity: 0.5;
 }
 
-.python_tab {
+.python_projects {
     background-color: var(--pyton-tab-clr);
 }
 
-.web_tab {
+.web_projects {
     background-color: var(--html-tab-clr);
 }
 
-#projects_folder {
+#projects_continer {
     padding: 1em;
     border: var(--projects-outer-border);
     border-radius: 1em;
     border-top-left-radius: 0;
+}
+
+#projects_folder {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    flex-wrap: nowrap;
     overflow: hidden;
 }
 
-#python_projects, #web_projects {
-    display: none;
-}
-
-.python_tab #python_projects {
-    display: block;
-}
-
-.web_tab #web_projects {
-    display: block;
+#projects_folder>div {
+    width: 100%;
+    flex-shrink: 0;
+    padding: 0.5em;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .project_info {
