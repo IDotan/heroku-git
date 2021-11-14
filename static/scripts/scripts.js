@@ -74,6 +74,9 @@ function project_tab_switch() {
     document.getElementById('projects_folder').scrollTo({ left: tab_offset, top: 0, behavior: 'smooth' });
     document.querySelectorAll('.projects_tab').forEach((tab) => { tab.classList.add('sunken_tab') });
     this.classList.remove('sunken_tab');
+    let folder = document.getElementById('projects_folder');
+    folder.style.height = "";
+    folder.style.height = document.getElementById(this.dataset.show).clientHeight + "px";
 };
 
 /**
@@ -129,6 +132,7 @@ window.onload = () => {
     mobile_menu_close();
     show_hide_projects();
     document.getElementById('projects_folder').scrollTo(0, 0);
+    document.getElementById('projects_folder').style.height = document.getElementById('python_projects').clientHeight + "px";
 };
 window.onresize = () => {
     show_hide_projects();

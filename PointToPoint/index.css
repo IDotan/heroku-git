@@ -60,13 +60,12 @@ header {
 
 #menu_toggle:checked~label>div div:nth-of-type(2) {
     top: 50%;
-    transform: rotate(-50deg) translateY(-50%);
+    transform: translateY(-50%) rotate(-50deg);
 }
 
 #menu_toggle:checked~label>div div:nth-of-type(3) {
     top: 50%;
-    transform: rotate(50deg) translateY(-50%);
-    left: -10%;
+    transform: translateY(-50%) rotate(50deg);
 }
 
 /* headers links */
