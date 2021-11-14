@@ -95,8 +95,8 @@ function dynamic_site_links() {
  * Show or hide projects according to page position.
  */
 function show_hide_projects() {
-    let folder = document.getElementById('projects_folder');
-    if (folder.getBoundingClientRect().y > window.innerHeight || folder.getBoundingClientRect().bottom < 0) { return };
+    let folder = document.getElementById('projects_folder').getBoundingClientRect();
+    if (folder.y > window.innerHeight || folder.bottom < 0) { return };
     let tabs = document.getElementById('projects_folder').children;
     for (let i = 0; i < tabs.length; i++) {
         let tab = tabs[i].children;
