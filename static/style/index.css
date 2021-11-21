@@ -49,6 +49,7 @@ a:visited {
     from {
         overflow: hidden;
     }
+
     to {
         overflow: visible;
     }
@@ -68,10 +69,12 @@ a:visited {
     0% {
         top: 0;
     }
+
     80% {
         top: 0;
         opacity: 1;
     }
+
     100% {
         top: 0;
         opacity: 0;
@@ -94,10 +97,12 @@ a:visited {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
+
     50% {
         transform: translate(-50%, -50%) rotate(180deg);
         opacity: 0;
     }
+
     100% {
         transform: translate(-50%, -50%) rotate(360deg);
     }
@@ -321,6 +326,7 @@ header .logo {
     from {
         left: -14em;
     }
+
     to {
         left: 0em;
     }
@@ -344,9 +350,11 @@ header .logo {
     0%, 35% {
         transform: rotate(0deg);
     }
+
     5%, 15%, 25% {
         transform: rotate(20deg);
     }
+
     10%, 20%, 30% {
         transform: rotate(-20deg);
     }
@@ -469,12 +477,57 @@ header .logo {
     margin-bottom: 0;
 }
 
-.project_info>img {
+.project_info>img, .project_info>.pc_mobile_continer {
     width: 95%;
     max-width: 25em;
     border-radius: 1em;
     align-self: center;
     box-shadow: 2px 5px 10px var(--boxshdow-color);
+    flex: 0 0 auto;
+}
+
+.pc_mobile_continer {
+    padding: 0.5em;
+}
+
+.pc_mobile_display {
+    position: relative;
+}
+
+.desktop_project>img:nth-of-type(1) {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.desktop_project>.Computer_monitor_display {
+    position: absolute;
+    width: 92%;
+    height: 70%;
+    margin: 3% 4%;
+    top: 0;
+    overflow: hidden;
+}
+
+.Computer_monitor_display>img, .mobile_project>img:nth-of-type(1) {
+    width: 100%;
+}
+
+.mobile_project {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0.5em;
+    width: 25%;
+}
+
+.mobile_project>img:nth-of-type(2) {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    height: 84%;
+    padding-top: 18%;
+    z-index: -1;
 }
 
 /* whatsapp */
@@ -544,6 +597,7 @@ footer {
     0%, 100% {
         transform: translateY(-50%) scale(1, 0.6)
     }
+
     50% {
         transform: translateY(-95%) scale(0.8, 0.9)
     }
@@ -553,32 +607,39 @@ footer {
     :root {
         font-size: 20px;
     }
+
     /* navbar desktop */
     header label {
         display: none;
     }
+
     nav {
         position: relative;
         left: 0px;
         opacity: 1;
     }
+
     nav a {
         padding: 1em 1em;
         border-right: 0.15em solid var(--boarder-color);
     }
+
     /* about styles desktop */
     #about {
         flex-flow: nowrap;
         width: 85vw;
     }
+
     /* projects section desktop */
     .project_info {
         flex-flow: nowrap;
         width: 80%;
     }
-    .project_info>img {
+
+    .project_info>img, .project_info>.pc_mobile_continer {
         width: 18em;
     }
+
     /* contact me desktop */
     #contact_me>.contact_links {
         flex-direction: row;
