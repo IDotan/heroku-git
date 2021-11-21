@@ -523,10 +523,10 @@ header .logo {
 
 .mobile_project>img:nth-of-type(2) {
     position: absolute;
-    width: 100%;
-    right: 0;
+    width: 95%;
+    right: 1px;
     height: 84%;
-    padding-top: 18%;
+    padding-top: 17%;
     z-index: -1;
 }
 
