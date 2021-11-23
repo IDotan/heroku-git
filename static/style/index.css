@@ -448,6 +448,10 @@ header .logo {
     transition: left 0.5s ease-in-out, right 0.5s ease-in-out;
 }
 
+.project_info:last-of-type {
+    margin-bottom: 0;
+}
+
 .project_info:nth-of-type(2n) {
     left: 0;
 }
