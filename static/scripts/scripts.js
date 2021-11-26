@@ -87,7 +87,7 @@ function dynamic_site_links() {
     link = link.split('#', 1)[0];
     link.slice(-1) == '/' ? link = link : link += '/';
     document.getElementById('cv_link').href = link;
-    document.getElementById('ptp_link').href = link + 'PointToPoint-web';
+    document.getElementById('ptp_link').href = link + 'PointToPoint';
     document.getElementById('memory_link').href = link + 'memoryCardGame';
 };
 

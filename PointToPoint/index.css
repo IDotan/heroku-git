@@ -1,0 +1,521 @@
+:root {
+    /* hint-countdown * 2 is the real time */
+    --hint-countdown: 15s;
+}
+
+body {
+    background-color: #797979;
+    margin: 0;
+    min-width: 350px;
+}
+
+header {
+    position: fixed;
+    height: 3em;
+    background-color: rgb(90, 90, 90);
+    width: 100vw;
+    top: 0;
+    border-bottom: 0.2rem solid;
+    z-index: 99;
+}
+
+/* mobile menu icon */
+
+#menu_toggle {
+    display: none;
+}
+
+.menu_btn {
+    position: relative;
+    display: inline-block;
+    height: 3em;
+    width: 3em;
+    transform: scale(0.5, 0.5);
+    cursor: pointer;
+}
+
+.menu_btn div {
+    position: absolute;
+    width: 90%;
+    margin: 0 5%;
+    padding: 0.2em 0;
+    background-color: #ffffff;
+    border-radius: 5em;
+    top: 5%;
+    opacity: 1;
+    transition: top 0.5s, transform 0.5s, opacity 0.5s;
+}
+
+.menu_btn div:nth-of-type(2) {
+    top: 40%;
+}
+
+.menu_btn div:nth-of-type(3) {
+    top: 75%;
+}
+
+#menu_toggle:checked~label>div div:nth-of-type(1) {
+    opacity: 0;
+}
+
+#menu_toggle:checked~label>div div:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-50deg);
+}
+
+#menu_toggle:checked~label>div div:nth-of-type(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(50deg);
+}
+
+/* headers links */
+
+#header_links {
+    position: absolute;
+    top: 0;
+    padding-top: 3.2em;
+    height: 100vh;
+    width: 100vw;
+    left: -100vw;
+    transition: top 1s, left 1s;
+    z-index: -1;
+}
+
+#header_links::before {
+    content: "";
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: -1;
+}
+
+#header_links>div {
+    position: relative;
+    font-size: 2rem;
+    padding: 0.5em 0;
+    background-color: #939393;
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 0.15em solid rgb(0, 0, 0);
+}
+
+#header_links span {
+    color: #ffffff;
+    margin: 0 0.5em;
+}
+
+/* tooltips popups */
+
+#tooltips {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#tooltips.closed {
+    display: none;
+}
+
+#tooltips>div {
+    display: none;
+}
+
+#tooltips .visible {
+    display: block;
+}
+
+.tooltip_box {
+    position: relative;
+    width: max-content;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a1a7b9;
+    padding: 1em 3em;
+    border: 0.15em solid rgb(0, 0, 0);
+    border-radius: 2em;
+    box-shadow: 0.5em 0.8em 1.2em #1a1a1a;
+}
+
+.tooltip_x_btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* tooltip goal */
+
+#tooltip_goal h2 {
+    margin: 0;
+}
+
+#tooltip_goal p {
+    max-width: 50vw;
+    font-size: 1.1em;
+}
+
+/* tooltip hint */
+
+#tooltip_hint p {
+    text-align: center;
+    max-width: 50vw;
+}
+
+#tooltip_hint p .red {
+    color: red;
+}
+
+#tooltip_hint p .yellew {
+    color: yellow;
+}
+
+.hint_timer {
+    position: relative;
+    margin: 0 auto;
+    width: 2em;
+    height: 2em;
+    border: 0.1em solid #000000;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.timer_half {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.timer_half.right {
+    right: 0;
+}
+
+.timer_half::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.timer_half.left.start::before {
+    transform: rotate(180deg);
+    transform-origin: 100% 50%;
+    transition: transform var(--hint-countdown) linear var(--hint-countdown);
+}
+
+.timer_half.right.start::before {
+    transform: rotate(180deg);
+    transform-origin: 0% 50%;
+    transition: transform var(--hint-countdown) linear;
+}
+
+/* tooltip contact me */
+
+.contact_links {
+    display: block;
+    width: max-content;
+    margin-bottom: 0.5em;
+    text-decoration: none;
+    color: #000000;
+}
+
+#tooltip_contact p {
+    max-width: 45vw;
+}
+
+/* main */
+
+#game_section {
+    padding-top: 1rem;
+    margin-top: 3em;
+}
+
+#game_window {
+    font-size: 0.85rem;
+    margin: 0 auto;
+    padding: 2em;
+    padding-bottom: 0;
+    width: max-content;
+}
+
+#game_board {
+    display: grid;
+    width: max-content;
+    margin: 0 auto;
+    padding-bottom: 3em;
+    grid-template-rows: repeat(5, 5.5em);
+    grid-template-columns: repeat(3, 5.5em);
+}
+
+.tile:nth-of-type(1), .tile:nth-of-type(6) {
+    grid-row: 1;
+}
+
+.tile:nth-of-type(4) {
+    grid-row: 2;
+}
+
+.tile:nth-of-type(2), .tile:nth-of-type(7) {
+    grid-row: 3;
+}
+
+.tile:nth-of-type(5) {
+    grid-row: 4;
+}
+
+.tile:nth-of-type(3), .tile:nth-of-type(8) {
+    grid-row: 5;
+}
+
+.tile:nth-of-type(6), .tile:nth-of-type(7), .tile:nth-of-type(8) {
+    grid-column: 1;
+}
+
+.tile:nth-of-type(4), .tile:nth-of-type(5) {
+    grid-column: 2;
+}
+
+.tile:nth-of-type(1), .tile:nth-of-type(2), .tile:nth-of-type(3) {
+    grid-column: 3;
+}
+
+.tile {
+    background-color: black;
+    position: relative;
+    width: 5em;
+    height: 5em;
+    overflow: hidden;
+    border: 0.4em solid transparent;
+    box-shadow: 0 0 0.5em #000;
+}
+
+.tile.selected {
+    border-color: lightskyblue;
+}
+
+.color {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
+.color.red {
+    background-color: red;
+}
+
+.color.blue {
+    background-color: blue;
+}
+
+.color.yellow {
+    background-color: yellow;
+}
+
+.color.green {
+    background-color: green;
+}
+
+/* tile's color placing */
+
+.color:nth-of-type(1) {
+    left: -2em;
+    top: -2em;
+}
+
+.color:nth-of-type(2) {
+    right: -2em;
+    top: -2em;
+}
+
+.color:nth-of-type(3) {
+    right: -2em;
+    bottom: -2em;
+}
+
+.color:nth-of-type(4) {
+    bottom: -2em;
+    left: -2em;
+}
+
+/* game control panle */
+
+.game_controls {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+}
+
+.game_controls button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 3em;
+}
+
+.btn_spin:hover {
+    animation: btn_spin_left 3s linear 1s infinite;
+    --spin-direction: -45deg
+}
+
+.btn_spin:hover:nth-of-type(2) {
+    --spin-direction: 45deg
+}
+
+@keyframes btn_spin_left {
+    0%, 50% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(var(--spin-direction));
+    }
+}
+
+.game_controls span {
+    font-size: 1.5em;
+}
+
+.game_controls.hide {
+    display: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    border-top: 0.1rem solid #000000;
+    background-color: #5a5a5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a:link, footer a:visited {
+    color: #dbdbdb;
+    text-decoration: none;
+}
+
+/* mobile side menu - horizontal viewpoint */
+
+@media only screen and (min-aspect-ratio: 1/2) and (max-height: 450px) and (max-width: 1024px) {
+    header {
+        height: 100vh;
+        width: 3em;
+        border-right: 0.2rem solid;
+    }
+    #tooltip_goal p, #tooltip_hint p {
+        max-width: 35vw;
+    }
+    #game_section {
+        margin-top: 0;
+        margin-left: 3em;
+    }
+    footer {
+        display: none;
+    }
+}
+
+/* game board horizontal settings */
+
+@media only screen and (min-width:600px) {
+    #tooltip_hint p {
+        max-width: 25vw;
+    }
+    #game_board {
+        grid-template-rows: repeat(3, 5.5em);
+        grid-template-columns: repeat(5, 5.5em);
+    }
+    .tile:nth-of-type(1), .tile:nth-of-type(2), .tile:nth-of-type(3) {
+        grid-row: 1;
+    }
+    .tile:nth-of-type(4), .tile:nth-of-type(5) {
+        grid-row: 2;
+    }
+    .tile:nth-of-type(6), .tile:nth-of-type(7), .tile:nth-of-type(8) {
+        grid-row: 3;
+    }
+    .tile:nth-of-type(1), .tile:nth-of-type(6) {
+        grid-column: 1;
+    }
+    .tile:nth-of-type(4) {
+        grid-column: 2;
+    }
+    .tile:nth-of-type(2), .tile:nth-of-type(7) {
+        grid-column: 3;
+    }
+    .tile:nth-of-type(5) {
+        grid-column: 4;
+    }
+    .tile:nth-of-type(3), .tile:nth-of-type(8) {
+        grid-column: 5;
+    }
+    .game_controls {
+        width: max-content;
+        gap: 2em;
+    }
+}
+
+/* desktop style */
+
+@media only screen and (min-width: 1024px) {
+    :root {
+        font-size: 20px;
+    }
+    #moblie_menu {
+        display: none;
+    }
+    #header_links {
+        position: relative;
+        left: 0;
+        padding: 0;
+        height: 100%;
+        z-index: 0;
+        display: flex;
+        transition: none;
+    }
+    #header_links>div {
+        padding: 0 0.5em;
+        width: max-content;
+        height: 3rem;
+        border-bottom: 0;
+        border-right: 0.2rem solid #000000;
+        background-color: unset;
+    }
+    #header_links::before {
+        content: none;
+    }
+    #header_links>div:hover::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #3131319e;
+        z-index: -1;
+    }
+    #tooltip_goal p, #tooltip_contact p {
+        max-width: 20vw;
+    }
+    #tooltip_hint p {
+        max-width: 15vw;
+    }
+    #game_section {
+        padding: 3rem;
+    }
+    #game_window {
+        font-size: inherit;
+    }
+}
