@@ -1,3 +1,6 @@
 [submodule "memoryCardGame"]
 	path = memoryCardGame
 	url = https://github.com/IDotan/memoryCardGame.git
+[submodule "PointToPoint-web"]
+	path = PointToPoint-web
+	url = https://github.com/IDotan/PointToPoint-web.git
