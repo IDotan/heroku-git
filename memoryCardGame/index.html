@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style/index.css">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" id="nav_check">
+        <div>
+            <button type="button" onclick="section_switch(0)">landing_screen</button>
+            <button type="button" onclick="section_switch(1)">board</button>
+            <button type="button" onclick="section_switch(2)">end_screen</button>
+        </div>
+    </header>
+
+    <main>
+        <h1>Memory Card Game</h1>
+        <section id="landing_screen" class="page_section">
+            <section class="about_project landing_screen_sections">
+                <img class="memory_game_logo" src="static/img/logos/memory_game_logo.png" alt="Memory game">
+                <p class="about_project_text">
+                    <span>Welcome to our Memory Card game!</span><br>
+                    Click "Play" to start a game, click "Developers" to pay respect to the developers.<br>
+                    It is just a game. Have Fun!
+                </p>
+                <div class="about_btn_container">
+                    <button type="button" id="start_btn" class="btn_style">Play</button>
+                    <button type="button" class="btn_style btn_transparent"
+                        onclick="taggle_landingscreen_sections()">Developers</button>
+                </div>
+                <img class="character_img" src="static/img/character.png" alt="character">
+            </section>
+
+            <section id="developers_carousel_container" class="landing_screen_sections hide">
+                <div class="carousel_arrow" onclick="rotate_carousel(-1)">
+                    &#10096;
+                </div>
+
+                <div id="developers_carousel" class="developers">
+                    <div class="about placeholder">
+                        <img src="static/img/carousel_images/mug.jpg" alt="Funny mug">
+                        <div class="about_txt">
+                            <h2>placeholder</h2>
+                            <p class="about_text">
+                                <span>Lorem ipsum dolor sit, amet amet</span><br>
+                                consectetur adipisicing elit. Velit sit nobis eveniet, iusto
+                                rerum tempore similique aut sequi pariatur expedita labore soluta et quod at
+                                explicabo<br>
+                                <I>"voluptate minus voluptate minus distinctio facere!"</I>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about tab center" id="itai">
+                        <img src="static/img/carousel_images/ItaiPic.jpg" alt="A picture of Itai">
+                        <div class="about_txt">
+                            <h2>Itai Dotan</h2>
+                            <p class="about_text">
+                                <span>Python & FullStack developer.</span><br>
+                                Highly motivated, fully able to learn independently,
+                                responsible, dedicated and creative problem solving. works well in teams or solo.<br>
+                                <i>"Always ready for a good challenge."</i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about tab" id="artem">
+                        <img src="static/img/carousel_images/artemPic.jpg" alt="A picture of Artem">
+                        <div class="about_txt">
+                            <h2>Artem Meshkov</h2>
+                            <p class="about_text">
+                                <span>FullStack developer.</span><br>
+                                Nothing is more satisfying than a great working and looking code. I love a good challange and i am highly competetive but always helping teammates. 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about tab" id="danielle">
+                        <img src="static/img/carousel_images/DaniellePic.jpg" alt="A picture of Danielle">
+                        <div class="about_txt">
+                            <h2>Danielle Trachterman</h2>
+                            <p class="about_text">
+                                <span>FullStack developer.</span><br>
+                                Web & Mobile Developer with highly self- motivated, keeping myself up-to-date with the
+                                latest technologies<br>
+                                <i>"Ready for my next challenge."</i>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="carousel_arrow" onclick="rotate_carousel(1)">
+                    &#10097;
+                </div>
+                <div class="carousel_back_container">
+                    <button type="button" class="btn_style btn_transparent"
+                        onclick="taggle_landingscreen_sections()">Back</button>
+                </div>
+            </section>
+            <div id="popup_container">
+                <div id="popup_content">
+                    <span id="close_popup">X</span>
+
+                    <label for="name_form">User name</label>
+                    <input type="text" class="input_form" id="name_form">
+
+                    <label for="mail_form">E-Mail</label>
+                    <input type="mail" class="input_form" id="mail_form">
+
+                    <button type="submit" id="login_btn" class="btn_style">Continue</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="board" class="page_section hide">
+            <section id="difficulty_picking">
+                <h2>Pick difficulty:</h2>
+                <div class="difficulty_btn_container">
+                    <div>
+                        <img class="difficulty_img" src="static/img/icons/easy.svg" alt="Easy">
+                        <button type="button" onclick="initialize_game(6)" class="btn_style_difficulty">Easy</button>
+                    </div>
+                    <div>
+                        <img class="difficulty_img" src="static/img/icons/medium.svg" alt="Medium">
+                        <button type="button" onclick="initialize_game(12)" class="btn_style_difficulty">Medium</button>
+                    </div>
+                    <div>
+                        <img class="difficulty_img" src="static/img/icons/hard.svg" alt="Hard">
+                        <button type="button" onclick="initialize_game(18)" class="btn_style_difficulty">Hard</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="game_board" class="hide">
+                <nav class="game_navbar">
+                    <img class="nav_logo" src="static/img/logos/small-logo-mobile.png" alt="nav_logo">
+
+                    <div class="game_info_container">
+                        <div class="game_info">
+                            <img class="nav_icon" src="static/img/icons/time.svg">
+                            <div id="game_timer">
+                                <span id="time">00:00</span>
+                                <span id="timer_status"><i class="fas fa-play"></i></span>
+                            </div>
+                        </div>
+                        <div class="game_info">
+                            <img class="nav_icon" src="static/img/icons/moves.svg">
+                            <span class="mistakes_x">X</span><span class="mistakes_x">X</span><span
+                                class="mistakes_x">X</span>
+                        </div>
+                    </div>
+                </nav>
+
+                <div id="user_data">
+                    <span>Player: <span id="player_name">name</span></span>
+                    <span>Score: <span id="player_score">0</span></span>
+                </div>
+
+                <section class="game_panle">
+
+                    <template id="card_template">
+                        <div class="card">
+                            <img src="static/img/logos/logo-black.png" alt="card back image" class="card_back">
+                            <img class="card_img" src="" alt="">
+                        </div>
+                    </template>
+                    <div id="card_container">
+                        <!-- javascript place the cards in this div -->
+                    </div>
+
+                    <div id="start_btn_container">
+                        <button type="button" onclick="start_game()" class="btn_style start_game_btn">Start</button>
+                    </div>
+
+                </section>
+
+                <div id="board_bottom_btn_continer">
+                    <button type="button" class="btn_style" onclick="go_to_score_board()">Score board</button>
+                    <button type="button" class="btn_style" onclick="reset_game()">Restart</button>
+                </div>
+
+            </section>
+
+        </section>
+
+        <section id="end_screen" class="page_section hide">
+            <h2>Game ranking</h2>
+            <div id="table_continer">
+                <table id="score_table">
+                    <tr>
+                        <th></th>
+                        <th>Player</th>
+                        <th class="sort_by show" onclick="table_sort_click(event)">
+                            Score
+                        </th>
+                        <th class="sort_by up" onclick="table_sort_click(event)">
+                            Time
+                        </th>
+                        <th>E-mail</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="end_screen_btn_continer">
+                <button type="button" class="btn_style" onclick="play_again(event)">Try again</button>
+                <button type="button" class="btn_style" onclick="play_again(event)">New player</button>
+            </div>
+
+            <div id="share">
+                <span>Share your result:</span>
+                <span class="share_link_btn" title="Whatsapp" onclick="share_via_whatsapp()">
+                    <i class="fab fa-whatsapp-square"></i></span>
+                <span class="share_link_btn" title="Email" onclick="share_via_mail()">
+                    <i class="fas fa-envelope-square"></i></span>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="static/script/scripts.js"></script>
+</body>
+
+</html>
