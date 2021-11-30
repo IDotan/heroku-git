@@ -1,22 +1,26 @@
 :root {
     /* hint-countdown * 2 is the real time */
     --hint-countdown: 15s;
+    --head-foot-clr: rgb(67, 90, 115);
 }
 
 body {
-    background-color: #797979;
+    position: relative;
+    background-color: #918f8f;
     margin: 0;
     min-width: 350px;
+    min-height: 100vh;
 }
 
 header {
-    position: fixed;
+    position: sticky;
     height: 3em;
-    background-color: rgb(90, 90, 90);
+    background-color: var(--head-foot-clr);
     width: 100vw;
     top: 0;
     border-bottom: 0.2rem solid;
     z-index: 99;
+    box-sizing: border-box;
 }
 
 /* mobile menu icon */
@@ -73,12 +77,13 @@ header {
 #header_links {
     position: absolute;
     top: 0;
-    padding-top: 3.2em;
+    padding-top: 3em;
     height: 100vh;
     width: 100vw;
     left: -100vw;
     transition: top 1s, left 1s;
     z-index: -1;
+    box-sizing: border-box;
 }
 
 #header_links::before {
@@ -235,7 +240,6 @@ header {
 
 #game_section {
     padding-top: 1rem;
-    margin-top: 3em;
 }
 
 #game_window {
@@ -376,6 +380,7 @@ header {
     0%, 50% {
         transform: rotate(0deg);
     }
+
     25% {
         transform: rotate(var(--spin-direction));
     }
@@ -396,7 +401,7 @@ footer {
     height: 2rem;
     text-align: center;
     border-top: 0.1rem solid #000000;
-    background-color: #5a5a5a;
+    background-color: var(--head-foot-clr);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -411,17 +416,26 @@ footer a:link, footer a:visited {
 
 @media only screen and (min-aspect-ratio: 1/2) and (max-height: 450px) and (max-width: 1024px) {
     header {
+        position: absolute;
         height: 100vh;
         width: 3em;
         border-right: 0.2rem solid;
+        border-bottom: none;
     }
+
+    #header_links>div:nth-of-type(1) {
+        border-top: 0.15em solid rgb(0, 0, 0);
+    }
+
     #tooltip_goal p, #tooltip_hint p {
         max-width: 35vw;
     }
+
     #game_section {
         margin-top: 0;
         margin-left: 3em;
     }
+
     footer {
         display: none;
     }
@@ -433,34 +447,44 @@ footer a:link, footer a:visited {
     #tooltip_hint p {
         max-width: 25vw;
     }
+
     #game_board {
         grid-template-rows: repeat(3, 5.5em);
         grid-template-columns: repeat(5, 5.5em);
     }
+
     .tile:nth-of-type(1), .tile:nth-of-type(2), .tile:nth-of-type(3) {
         grid-row: 1;
     }
+
     .tile:nth-of-type(4), .tile:nth-of-type(5) {
         grid-row: 2;
     }
+
     .tile:nth-of-type(6), .tile:nth-of-type(7), .tile:nth-of-type(8) {
         grid-row: 3;
     }
+
     .tile:nth-of-type(1), .tile:nth-of-type(6) {
         grid-column: 1;
     }
+
     .tile:nth-of-type(4) {
         grid-column: 2;
     }
+
     .tile:nth-of-type(2), .tile:nth-of-type(7) {
         grid-column: 3;
     }
+
     .tile:nth-of-type(5) {
         grid-column: 4;
     }
+
     .tile:nth-of-type(3), .tile:nth-of-type(8) {
         grid-column: 5;
     }
+
     .game_controls {
         width: max-content;
         gap: 2em;
@@ -473,9 +497,11 @@ footer a:link, footer a:visited {
     :root {
         font-size: 20px;
     }
+
     #moblie_menu {
         display: none;
     }
+
     #header_links {
         position: relative;
         left: 0;
@@ -485,6 +511,7 @@ footer a:link, footer a:visited {
         display: flex;
         transition: none;
     }
+
     #header_links>div {
         padding: 0 0.5em;
         width: max-content;
@@ -493,9 +520,11 @@ footer a:link, footer a:visited {
         border-right: 0.2rem solid #000000;
         background-color: unset;
     }
+
     #header_links::before {
         content: none;
     }
+
     #header_links>div:hover::before {
         content: "";
         position: absolute;
@@ -506,15 +535,19 @@ footer a:link, footer a:visited {
         background-color: #3131319e;
         z-index: -1;
     }
+
     #tooltip_goal p, #tooltip_contact p {
         max-width: 20vw;
     }
+
     #tooltip_hint p {
         max-width: 15vw;
     }
+
     #game_section {
         padding: 3rem;
     }
+
     #game_window {
         font-size: inherit;
     }
