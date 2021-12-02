@@ -378,6 +378,7 @@ header .logo {
     margin: 0 auto;
     padding: 2em 0;
     width: max-content;
+    min-width: 300px;
     max-width: 85vw;
 }
 
