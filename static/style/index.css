@@ -378,8 +378,12 @@ header .logo {
     margin: 0 auto;
     padding: 2em 0;
     width: max-content;
-    min-width: 300px;
     max-width: 85vw;
+}
+
+#projects_tabs {
+    display: flex;
+    max-width: 95%;
 }
 
 .projects_tab {
