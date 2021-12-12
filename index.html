@@ -25,10 +25,28 @@
                 <div></div>
             </div>
         </label>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#my_projects">My projects</a>
-            <a href="#contact_me">Contact Me</a>
+        <nav class="nav_direction_up">
+            <ul id="nav_ul">
+                <li id="active_nav_tab" class="nav_tab" title="About" data-anchor="about">
+                    <div class="nav_icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <span class="nav_text">About</span>
+                </li>
+                <li class="nav_tab" title="Projects" data-anchor="my_projects">
+                    <div class="nav_icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <span class="nav_text">Projects</span>
+                </li>
+                <li class="nav_tab" title="Contact me" data-anchor="contact_me">
+                    <div class="nav_icon">
+                        <i class="far fa-address-card"></i>
+                    </div>
+                    <span class="nav_text">Contact me</span>
+                </li>
+                <div id="nav_indicator"></div>
+            </ul>
         </nav>
         <img src="static/img/logo.png" alt="logo" class="logo">
     </header>
@@ -40,7 +58,7 @@
 
         <!-- About -->
         <section class="darker_bg">
-            <div id="about" class="anchor_scroll">
+            <div id="about" class="anchors_class">
                 <div class="about_text">
                     <h1>Itai Dotan</h1>
                     <span>Python dev and Fullstack student</span>
@@ -72,7 +90,7 @@
 
         <!-- Projects -->
         <section>
-            <div id="my_projects" class="my_projects anchor_scroll">
+            <div id="my_projects" class="my_projects anchors_class">
                 <div id="projects_tabs">
                     <div class="projects_tab python_projects" data-show="python_projects">
                         <img src="static/img/python_logo.png" alt="Python logo">
@@ -251,7 +269,7 @@
 
         <!-- contact form -->
         <section class="darker_bg">
-            <div class="anchor_scroll" id="contact_me">
+            <div id="contact_me" class="anchors_class">
                 <p>Feel free to reach out to me using any of the links below, or use the WhatsApp link to the right to
                     easily send me a message.</p>
                 <div class="contact_links">
@@ -276,6 +294,7 @@
         </div>
     </footer>
     <script src="static/scripts/scripts.js"></script>
+    <script src="static/scripts/nav.js"></script>
 </body>
 
 </html>

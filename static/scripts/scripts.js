@@ -49,7 +49,7 @@ function nav_swip_up(event) {
  * Event listener to close the mobile menu when a link is clicked.
  */
 function navLinksEvents() {
-    let links = document.getElementsByTagName('nav')[0].children;
+    let links = document.getElementsByClassName('nav_tab');
     for (let i = 0; i < links.length; i++) {
         links[i].addEventListener('click', mobile_menu_close);
     };
