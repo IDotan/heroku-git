@@ -129,6 +129,7 @@ header {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     font-weight: 700;
     letter-spacing: 0.2em;
     position: absolute;
@@ -172,7 +173,6 @@ nav .nav_tab:hover {
 
 #menu_toggle:checked~nav #nav_ul {
     left: 0;
-    flex-flow: column;
     height: 100vh;
     width: 100vw;
     opacity: 1;
@@ -650,6 +650,7 @@ footer {
 
     #nav_ul {
         position: relative;
+        flex-direction: row;
         left: 0;
         opacity: 1;
     }
