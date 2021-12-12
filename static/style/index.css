@@ -3,7 +3,7 @@ html {
 }
 
 :root {
-    --nav-bg-clr: rgb(43, 43, 43);
+    --nav-bg-clr: rgb(60, 58, 58);
     --nav-font-clr: lightblue;
     --page-bg: #171D20;
     --lighter-bg-color: #2F3133;
@@ -635,6 +635,7 @@ footer {
 
     header {
         border-bottom: none;
+        font-size: 0.75em;
     }
 
     /* navbar desktop */
