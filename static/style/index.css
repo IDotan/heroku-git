@@ -771,6 +771,12 @@ footer {
         width: 85vw;
     }
 
+    .projects_inner_continer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     /* projects section desktop */
     .project_info {
         flex-flow: nowrap;
