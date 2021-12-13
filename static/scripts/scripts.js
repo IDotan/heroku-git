@@ -97,7 +97,7 @@ function dynamic_site_links() {
 function show_hide_projects() {
     let folder = document.getElementById('projects_folder').getBoundingClientRect();
     if (folder.y > window.innerHeight || folder.bottom < 0) { return };
-    let tabs = document.getElementById('projects_folder').children;
+    let tabs = document.getElementsByClassName('projects_inner_continer');
     for (let i = 0; i < tabs.length; i++) {
         let tab = tabs[i].children;
         for (let j = 0; j < tab.length; j++) {
