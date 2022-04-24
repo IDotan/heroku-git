@@ -1,0 +1,197 @@
+:root {
+    --cube-color-1: red;
+    --cube-color-2: blue;
+    --gradient-direction: 0deg;
+    --boxs-size: 8vmax;
+    --boxs-gap: 0.5vmax;
+    --jumpover-time: 0.75s;
+    --animation-x-offset: 0;
+    --animation-y-offset: 0;
+    --animation-x-offset-counter: 0;
+    --animation-y-offset-counter: 0;
+    --popup-z-index: 10;
+    --info-font: 1.5em;
+}
+
+body {
+    margin: 0;
+    background-color: #a2a2a2;
+    min-height: 100vh;
+}
+
+#game_section {
+    padding-top: 0.5em;
+}
+
+#game_continer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    height: max-content;
+    margin: auto;
+}
+
+#game_continer::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: linear-gradient(var(--gradient-direction), var(--cube-color-1), transparent, var(--cube-color-2));
+    border-radius: 0.5em;
+}
+
+.space {
+    position: relative;
+    width: var(--boxs-size);
+    height: var(--boxs-size);
+    margin: var(--boxs-gap);
+    border: 0.1em solid black;
+    box-sizing: border-box;
+}
+
+.red {
+    background-color: var(--cube-color-1);
+}
+
+.blue {
+    background-color: var(--cube-color-2);
+}
+
+.switch {
+    animation: switch_frames var(--jumpover-time) linear forwards;
+}
+
+@keyframes switch_frames {
+    from {
+        transform-origin: var(--animation-x-offset) var(--animation-y-offset);
+    }
+
+    to {
+        transform-origin: var(--animation-x-offset) var(--animation-y-offset);
+        transform: rotate(180deg);
+    }
+}
+
+.switch_counter {
+    animation: switch_counter_frames var(--jumpover-time) linear forwards;
+}
+
+@keyframes switch_counter_frames {
+    from {
+        transform-origin: var(--animation-x-offset-counter) var(--animation-y-offset-counter);
+    }
+
+    to {
+        transform-origin: var(--animation-x-offset-counter) var(--animation-y-offset-counter);
+        transform: rotate(180deg);
+    }
+}
+
+#game_controls {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    font-size: 3em;
+    padding: 0.2em 0;
+}
+
+#game_controls>div {
+    cursor: pointer;
+}
+
+#info {
+    position: fixed;
+    z-index: var(--popup-z-index);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+#info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.7;
+}
+
+
+#info_warper {
+    position: relative;
+    max-height: 80vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 600px;
+    background-color: #507ba8;
+    padding: 1em;
+    border-radius: 2em;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--info-font);
+    text-align: center;
+    overflow: auto;
+}
+
+#info_warper>span {
+    position: absolute;
+    top: 0;
+    width: max-content;
+    align-self: end;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+#info_warper>h1 {
+    margin: 0;
+}
+
+#creater_link {
+    margin: 0;
+    font-style: italic;
+}
+
+.close {
+    display: none;
+}
+
+@media screen and (min-aspect-ratio:1/1) {
+    :root {
+        --gradient-direction: -90deg;
+    }
+
+    #game_continer::before {
+        height: 20%;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+    }
+
+    #game_warper {
+        display: flex;
+        height: calc(var(--boxs-size) * 3);
+    }
+
+    #game_continer {
+        flex-direction: row;
+    }
+
+    #game_controls {
+        max-width: 35vw;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    :root {
+        --info-font: 2em;
+    }
+}
