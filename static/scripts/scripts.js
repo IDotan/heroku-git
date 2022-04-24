@@ -89,6 +89,7 @@ function dynamic_site_links() {
     document.getElementById('cv_link').href = link;
     document.getElementById('ptp_link').href = link + 'PointToPoint';
     document.getElementById('memory_link').href = link + 'memoryCardGame';
+    document.getElementById('switch_link').href = link + 'switching8';
 };
 
 /**
